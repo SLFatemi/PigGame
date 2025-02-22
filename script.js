@@ -58,7 +58,7 @@ function endGame() {
   let turn = findTurn();
   dice.classList.add('hidden');
   for (let i = 0; i < scoreTexts.length; i++) {
-    if (scoreTexts[i].id === `score--${turn}` && scoreTexts[i].textContent >= 10)
+    if (scoreTexts[i].id === `score--${turn}` && scoreTexts[i].textContent >= 100)
       return turn;
   }
   return false;
@@ -106,10 +106,10 @@ holdBtn.addEventListener('click', function() {
           player[i].classList.add('player--winner');
         }
       }
-
     } else {
       resetCurrentScore();
       changeTurn();
+      score = 0;
     }
   }
 });
@@ -117,4 +117,5 @@ holdBtn.addEventListener('click', function() {
 
 resetBtn.addEventListener('click', function() {
   resetGame();
+  score = 0;
 });
