@@ -29,7 +29,7 @@ function resetCurrentScore() {
 function findTurn() {
   for (let i = 0; i < player.length; i++) {
     if (player[i].classList.contains('player--active')) {
-      return player[i].classList.item(1)[player[i].classList.item(1).length - 1];
+      return player[i].classList.item(1).at(-1);
     }
   }
 }
@@ -71,7 +71,7 @@ function resetGame() {
   resetCurrentScore();
   for (let i = 0; i < player.length; i++) {
     player[i].classList.remove('player--winner');
-    if (player[i].classList.item(1)[player[i].classList.item(1).length - 1] === '0') {
+    if (player[i].classList.item(1).at(-1) === '0') {
       player[i].classList.add('player--active');
     } else {
       player[i].classList.remove('player--active');
